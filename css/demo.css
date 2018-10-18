@@ -1,0 +1,103 @@
+@keyframes lampeggio {
+  0%   { opacity: 1; }
+  20%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+html {
+	background: #000;
+}
+
+body {
+	height: 100vh;
+	overflow: hidden;
+	background-color: #ffffbf;
+}
+
+#welcome {
+  font-family: "montserrat";
+  font-weight: 600;
+  line-height: 2.2vh;
+  color: #ffffbf;
+  font-size: 2.5vh;
+  text-decoration: none;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+#welcome:hover {
+  animation: lampeggio 1s infinite alternate;
+}
+
+#my_story {
+  margin: 0;
+  font-family: "montserrat";
+  font-weight: 600;
+  line-height: 2.2vh;
+  color: #ffffbf;
+  font-size: 1.75vh;
+  padding: 1vh;
+  border: 0.2vh solid black;
+  position:absolute;
+  top:50%;
+  left:80%;
+  transform: translate(-50%,-50%);
+}
+
+#my_story:hover {
+  color: black;
+}
+
+/* Icons */
+.icon {
+	display: block;
+	width: 1.5em;
+	height: 1.5em;
+	margin: 0 auto;
+	fill: currentColor;
+}
+
+main {
+	position: relative;
+	width: 100%;
+}
+
+.content {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	margin: 0 auto;
+}
+
+.content--fixed {
+	position: fixed;
+	z-index: 10000;
+	top: 0;
+	left: 0;
+	display: grid;
+	align-content: space-between;
+	width: 100%;
+	max-width: none;
+	height: 100vh;
+	padding: 1.5em;
+	pointer-events: none;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: auto auto 4em;
+	grid-template-areas: 'header ...'
+	'... ...'
+	'github demos';
+}
+
+.content--fixed a {
+	pointer-events: auto;
+}

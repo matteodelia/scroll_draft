@@ -1,0 +1,84 @@
+<head>
+  <meta charset="utf-8">
+  <title>#04</title>
+  <script src="jquery.js"></script>
+  <style media="screen">
+  body {
+    overflow: hidden;
+    background-color: #121117;
+  }
+  .yellow {
+    width: 40px;
+    height: 40px;
+    background-color: #FFFFBF;
+    position: absolute;
+    transform: translate(-50%,-50%);
+  }
+  .object {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+  }
+  .circle {
+    border-radius: 50%;
+    border: 10px solid #7E5B91;
+    transition: 1.5s;
+  }
+  .center {
+    top: 50%;
+    left: 50%;
+    transition: 1.5s;
+  }
+  .away {
+    top: 50%;
+    left: 150%;
+    transition: 1.5s;
+  }
+  .box {
+    border: 10px solid #7E5B91;
+    transition: 1.5s;
+  }
+  @keyframes spin {
+    from {transform: translate(-50%,-50%) rotate(0)}
+    to {transform: translate(-50%,-50%) rotate(360deg)}
+  }
+  .spin {
+    animation: spin 1s infinite linear;
+  }
+  </style>
+</head>
+<body>
+  <div class="yellow center"></div>
+  <div class="object circle away"></div>
+</body>
+<script>
+$(".yellow").click(function(){
+  $(".object").removeClass("box");
+  $(".object").addClass("circle");
+  $(".object").removeClass("spin");
+  $(".yellow").removeClass("center");
+  $(".yellow").addClass("away");
+  $(".object").removeClass("away");
+  $(".object").addClass("center");
+});
+var c=0;
+$(".object").click(function(){
+  if (c==0) {
+    $(".object").removeClass("circle");
+    $(".object").addClass("box");
+    c=1;
+  }
+  else if (c==1) {
+    $(".object").addClass("spin");
+    c=2;
+  }
+  else if (c==2) {
+    $(".object").removeClass("center");
+    $(".object").addClass("away");
+    $(".yellow").removeClass("away");
+    $(".yellow").addClass("center");
+    c=0;
+  }
+});
+</script>

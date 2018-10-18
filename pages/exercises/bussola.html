@@ -1,0 +1,43 @@
+<html>
+<head>
+  <script src="jquery.js"></script>
+  <style media="screen">
+  body {
+    background-color: #121117;
+  }
+
+  #q{
+    display: inline-block;
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    top:50%; left:50%;
+    background-color: #7E5B91;
+  }
+
+  #pianeta{
+    background-color: #FFFFBF;
+    height: 30px; width: 30px;
+    transform: translate(200px,0);
+  }
+  </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.0/TweenMax.min.js"></script>
+</head>
+<body>
+  <div id="q">
+    <div id="pianeta"></div>
+  </div>
+</body>
+<script>
+var stato = 0;
+var tween = TweenMax.to("#q", 2, {
+  rotation: "+=360",
+  repeat: -1})
+
+$("#q").on("click", () => {
+  TweenMax.to("#q", 2,{
+    rotation: "-=360",
+    repeat: -1});
+})
+</script>
+</html>

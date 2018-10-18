@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="jquery.js"></script>
+  <style media="screen">
+  body {
+    background-color: #121117;
+  }
+
+  #stella{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    background-color: #7E5B91;
+  }
+
+  #cornice{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+  #pianeta{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #FFFFBF;
+  }
+
+  #cornice2{
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+  #pianeta2{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #613877;
+  }
+
+  @keyframes spin {
+    from{transform: translate(-50%,-50%) rotate(0);}
+    to{transform: translate(-50%,-50%)rotate(360deg);}
+  }
+
+  .spinning{
+    animation: spin 5s infinite linear;
+  }
+
+  @keyframes spin2 {
+    from{transform: translate(-50%,-50%) rotate(0);}
+    to{transform: translate(-50%,-50%)rotate(-360deg);}
+  }
+
+  .spinning2{
+    animation: spin2 3s infinite linear;
+  }
+  </style>
+</head>
+<body>
+  <div id="cornice">
+    <div id="pianeta"></div>
+  </div>
+  <div id="cornice2">
+    <div id="pianeta2"></div>
+  </div>
+  <div id="stella"></div>
+</body>
+<script>
+function spinner(){
+  if($("#cornice").hasClass("spinning")){
+    $("#cornice2").addClass("spinning2")
+  }
+    $("#cornice").addClass("spinning")
+}
+
+$("#stella").on("click", spinner);
+</script>
+</html>

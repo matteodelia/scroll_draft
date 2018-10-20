@@ -42,6 +42,7 @@ abbr,acronym { border: 0;
 
 .section{
 	text-align: center;
+	background-color: #ffffbf;
 }
 
 .intro p{
